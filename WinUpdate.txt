@@ -7,6 +7,9 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 Update-ExecutionPolicy Unrestricted
 Enable-RemoteDesktop
 
+# Install Chocolatey Package Manager
+cinst chocolatey
+
 if (Test-PendingReboot) { Invoke-Reboot }
 
 # Update Windows and reboot if necessary
