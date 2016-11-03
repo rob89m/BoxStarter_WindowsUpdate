@@ -15,4 +15,3 @@ if (Test-PendingReboot) { Invoke-Reboot }
 # Update Windows and reboot if necessary
 Install-WindowsUpdate -AcceptEula
 if (Test-PendingReboot) { Invoke-Reboot }
-Write-Host "Update Complete"
