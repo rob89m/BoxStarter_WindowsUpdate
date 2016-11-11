@@ -3,15 +3,18 @@ $Boxstarter.RebootOk=$true # Allow reboots?
 $Boxstarter.NoPassword=$False # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
 
-# Basic setup
+# Set PS Execution Policy level
 Update-ExecutionPolicy Unrestricted
-Enable-RemoteDesktop
+
 
 # Install Chocolatey Package Manager
-cinst chocolatey
-
+cup chocolatey
 if (Test-PendingReboot) { Invoke-Reboot }
 
 # Update Windows and reboot if necessary
 Install-WindowsUpdate -AcceptEula
+if (Test-PendingReboot) { Invoke-Reboot }
+
+#Enable Remote Desktop
+Enable-RemoteDesktop
 if (Test-PendingReboot) { Invoke-Reboot }
